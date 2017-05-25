@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int t,n;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        int arr[n]={0};
+        int i=0;
+        int m;
+        int val=1;
+        for(int j=0; j<n; j++)
+        {
+            m=val;
+            while(m)
+            {
+                if(arr[i]==0)
+                    m--;
+                i=(++i)%n;
+            }
+            while(arr[i]!=0)
+            {
+            	i=(++i)%n;
+            }
+            arr[i]=val;
+            val++;
+            i=(++i)%n;
+        }
+	    for(int i=0; i<n; i++)
+	        cout<<arr[i]<<" ";
+	    cout<<endl;
+    }
+    return 0;
+}
+//O(n^2)
